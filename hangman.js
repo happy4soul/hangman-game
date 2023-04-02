@@ -35,7 +35,7 @@ console.log(word2.guess)
 
 window.addEventListener('keydown', function (e) {
     let guessedWord = e.key
-    word2.makeGuess(guessedWord)
+    
     console.log(word2.getPuzzleBack())
     console.log(word2.guess)
 
