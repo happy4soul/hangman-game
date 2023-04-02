@@ -53,6 +53,8 @@ Hangman.prototype.gameDetails = function () {
         this.status = 'playing'
     }
     
+    return this.status
+    
 }
 
 
