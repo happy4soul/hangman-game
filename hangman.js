@@ -19,6 +19,19 @@ Hangman.prototype.getPuzzleBack = function () {
     return puzzle
 }
 
+Hangman.prototype.makeGuess = function (guessMade) {
+    guessMade = guessMade.toLowerCase()
+    let isUniqueGuess = !this.storeGuessedLetters.includes(guessMade)
+    let isBadGuess = !this.word.includes(guessMade)
+
+    if (isUniqueGuess) {
+        this.storeGuessedLetters.push(guessMade)
+    }
+    if (isUniqueGuess && isBadGuess) {
+        this.guess--//or guessmade = guessmade - 1
+    }
+}
+
 
 
 let word1 = new Hangman('Sarada Uchiha', 5)
@@ -28,18 +41,10 @@ let word1 = new Hangman('Sarada Uchiha', 5)
 console.log(word1.getPuzzleBack())
 console.log(word1.guess)
 
-let word2 = new Hangman('Chad', 2)
 
-console.log(word2.getPuzzleBack())
-console.log(word2.guess)
 
 window.addEventListener('keydown', function (e) {
     let guessedWord = e.key
-    
-    console.log(word2.getPuzzleBack())
-    console.log(word2.guess)
-
-
     word1.makeGuess(guessedWord)
     console.log(word1.getPuzzleBack())
     console.log(word1.guess)
