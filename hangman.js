@@ -1,7 +1,8 @@
 let Hangman = function (word, guess) {
     this.word = word.toLowerCase().split(''),
         this.guess = guess,
-        this.storeGuessedLetters = []
+        this.storeGuessedLetters = [],
+        this.status = 'playing'
 }
 
 Hangman.prototype.getPuzzleBack = function () {
@@ -32,6 +33,28 @@ Hangman.prototype.makeGuess = function (guessMade) {
     }
 }
 
+Hangman.prototype.gameDetails = function () {
+    let finished = true
+    this.word.forEach((letter) => {
+        if (this.storeGuessedLetters.includes(letter) || letter === ' ') {
+
+        }
+        else {
+            finished = false
+        }
+    })
+    if (this.guess === 0) {
+        this.status = 'failed'
+    }
+    else if (finished) {
+        this.status = 'finished'
+    }
+    else {
+        this.status = 'playing'
+    }
+    
+}
+
 
 
 let word1 = new Hangman('Sarada Uchiha', 5)
@@ -47,5 +70,6 @@ window.addEventListener('keydown', function (e) {
     let guessedWord = e.key
     word1.makeGuess(guessedWord)
     console.log(word1.getPuzzleBack())
+    console.log(word1.gameDetails())
     console.log(word1.guess)
 })
