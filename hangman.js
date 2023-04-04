@@ -104,5 +104,5 @@ window.addEventListener('keydown', function (e) {
     word1.makeGuess(guessedWord)
     console.log(word1.getPuzzleBack())
     console.log(word1.gameDetails())
-    console.log(word1.guess)
+    console.log(word1.gameStatus())
 })
