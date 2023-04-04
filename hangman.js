@@ -57,6 +57,37 @@ Hangman.prototype.gameDetails = function () {
     
 }
 
+Hangman.prototype.gameStatus = function(){
+    if(this.status === 'finished'){
+        let finishedMsg = document.createElement('p')
+        finishedMsg.textContent = `Congratulations, u guessed it!`
+        document.querySelector('.division').appendChild(finishedMsg)
+        return finishedMsg
+    }
+
+    else if(this.status === 'playing'){
+        let playingMsg = document.createElement('p')
+        if(this.guess > 1){
+            playingMsg.textContent = `You have ${this.guess} attempts left`
+        }
+        else{
+            playingMsg.textContent = `Careful, You have ${this.guess} attempt left`
+        }
+
+        document.querySelector('.division').appendChild(playingMsg)
+
+        return playingMsg
+        
+    }
+    else{
+        let failedMsg = document.createElement('p')
+        failedMsg.textContent = `You failed to guess it. The word was "${this.word.join('')}"`
+        document.querySelector('.division').appendChild(failedMsg)
+
+        return failedMsg
+    }
+}
+
 
 
 let word1 = new Hangman('Sarada Uchiha', 5)
