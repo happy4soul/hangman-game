@@ -1,4 +1,4 @@
-class Hangman = {
+class Hangman{
 constructor(word, guess){
  this.word = word.toLowerCase().split(''),
         this.guess = guess,
