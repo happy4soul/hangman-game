@@ -1,11 +1,12 @@
-let Hangman = function (word, guess) {
-    this.word = word.toLowerCase().split(''),
+class Hangman = {
+constructor(word, guess){
+ this.word = word.toLowerCase().split(''),
         this.guess = guess,
         this.storeGuessedLetters = [],
         this.status = 'playing'
 }
-
-Hangman.prototype.getPuzzleBack = function () {
+    
+    getPuzzleBack() {
     let puzzle = ''
 
     this.word.forEach((letter) => {
@@ -25,7 +26,7 @@ Hangman.prototype.getPuzzleBack = function () {
     return puzzle
 }
 
-Hangman.prototype.makeGuess = function (guessMade) {
+makeGuess(guessMade) {
     guessMade = guessMade.toLowerCase()
     let isUniqueGuess = !this.storeGuessedLetters.includes(guessMade)
     let isBadGuess = !this.word.includes(guessMade)
@@ -38,7 +39,7 @@ Hangman.prototype.makeGuess = function (guessMade) {
     }
 }
 
-Hangman.prototype.gameDetails = function () {
+gameDetails() {
     let finished = true
     this.word.forEach((letter) => {
         if (this.storeGuessedLetters.includes(letter) || letter === ' ') {
@@ -62,7 +63,7 @@ Hangman.prototype.gameDetails = function () {
     
 }
 
-Hangman.prototype.gameStatus = function(){
+gameStatus(){
     if(this.status === 'finished'){
         let finishedMsg = document.createElement('p')
         finishedMsg.textContent = `Congratulations, u guessed it!`
@@ -92,6 +93,16 @@ Hangman.prototype.gameStatus = function(){
         return failedMsg
     }
 }
+
+} 
+
+
+
+
+
+
+
+
 
 
 
