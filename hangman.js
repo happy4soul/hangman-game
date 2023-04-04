@@ -16,6 +16,11 @@ Hangman.prototype.getPuzzleBack = function () {
             puzzle += '*'
         }
     })
+    
+    let displayPuzzle = document.createElement('p')
+    displayPuzzle.textContent = puzzle
+    document.querySelector('.division').appendChild(displayPuzzle)
+
 
     return puzzle
 }
@@ -53,7 +58,7 @@ Hangman.prototype.gameDetails = function () {
         this.status = 'playing'
     }
     
-    return this.status
+    
     
 }
 
